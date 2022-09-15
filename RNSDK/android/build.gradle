@@ -1,0 +1,45 @@
+
+buildscript {
+
+    ext {
+        buildToolsVersion = "30.0.2"
+        minSdkVersion = 21
+        compileSdkVersion = 31
+        targetSdkVersion = 30
+        ndkVersion = "21.4.7075529"
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+//        implementation fileTree(dir: "libs", include: ["*.jar"])
+        classpath("com.android.tools.build:gradle:4.2.2")
+
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        // if we are keeping RN dependencies in our code base.
+        maven {
+            url("$rootDir/app/libs/android")
+        }
+
+        maven {
+            // Android JSC is installed from npm
+            url("$rootDir/app/libs/jsc-android/dist")
+        }
+
+        // if we are keeping RN dependencies on Maven Repo
+//        maven {
+//            url("https://ashish03399.jfrog.io/artifactory/react-native-lib-0.66.0")
+//        }
+
+        google()
+        maven { url 'https://www.jitpack.io' }
+    }
+}
+
