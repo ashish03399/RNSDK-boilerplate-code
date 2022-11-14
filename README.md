@@ -1,1 +1,1 @@
-# RNSDK-boilerplade-code
+# RNSDK-boilerplate-code
